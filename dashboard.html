@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Insurance</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<style>
+  .main-container {
+    margin-top: 10px;
+  }
+
+  .card {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-left: 2px solid #333;
+    border-bottom: 2px solid #333;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    height: 150px;
+    /* Adjust height as needed */
+  }
+
+  .bar-container::before {
+    content: 'Policies Sold';
+    position: absolute;
+    left: -40px;
+    top: -20px;
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    font-size: 12px;
+    color: #333;
+  }
+
+  .bar {
+    width: 14%;
+    background-color: #2aa5df;
+    position: relative;
+    border-radius: 5px 5px 0 0;
+    transition: background-color 0.3s ease;
+  }
+
+  .bar:hover {
+    background-color: #1d8ac7;
+  }
+
+  .bar::before {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    color: #333;
+  }
+
+  .bar::after {
+    content: attr(data-value) '%';
+    position: absolute;
+    top: -15px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #333;
+  }
+</style>
+
+<body class="page-dashboard">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="logo">
+        <h1 class="d-flex align-items-center">Endeavour</h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="login.html" >Login</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="portfolio.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/about-header.jpg');">
+      <div class="container position-relative d-flex flex-column align-items-center">
+        <h2>Dashboard</h2>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= side Section ======= -->
+    <div class="wrapper">
+      <div class="sidebar">
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+          <li><a href="profile.html"><i class="fas fa-user"></i>Profile</a></li>
+          <li><a href="#"><i class="fas fa-address-card"></i>Tables</a></li>
+          <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
+          <li><a href="contact.html"><i class="fas fa-address-book"></i>Contact</a></li>
+          <li><a href="#">
+              <i class="fas fa-cog"></i>
+              <span class="nav-item">Setting</span>
+            </a></li>
+
+          <li><a href="#" class="logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">Log out</span>
+            </a></li>
+
+        </ul>
+      </div>
+
+      <div class="main-container">
+        <div class="main-cards">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-blue order-card">
+                  <div class="card-block">
+
+                    <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
+                    <p class="m-b-0">Total Policy<span class="f-right">351</span></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-green order-card">
+                  <div class="card-block">
+                    <h2 class="text-right"><i class="fa-solid fa-person-arrow-down-to-line"></i></i><span>486</span>
+                    </h2>
+                    <p class="m-b-0">Total leads<span class="f-right">351</span></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-yellow order-card">
+                  <div class="card-block">
+                    <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>486</span></h2>
+                    <p class="m-b-0">Total conversion<span class="f-right">351</span></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-pink order-card">
+                  <div class="card-block">
+                    <h2 class="text-right"><i class="fa-solid fa-users-line"></i></i><span>486</span></h2>
+                    <p class="m-b-0">Total Client<span class="f-right">351</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="key-metrics">
+            <div class="section-header">
+              <h2>Key Matrix Overview </h2>
+            </div>
+            <div class="container">
+              <div class="row mb-12">
+                <div class="col-md-4 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Real-time Updates</h5>
+                      <p class="card-text">Stay informed with up-to-the-minute data and insights to make agile
+                        decisions.</p>
+                      <button type="button" class="btn btn-info rounded-pill">Read More</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Total Policies Sold</h5>
+                      <p class="card-text">Track the total number of policies sold to evaluate business performance
+                      </p>
+                      <button type="button" class="btn btn-info rounded-pill">Read More</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Active Leads</h5>
+                      <p class="card-text">Monitor and prioritize active leads to enhance sales conversion and cus.
+                      </p>
+                      <button type="button" class="btn btn-info rounded-pill">Read More</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">New Clients Onboarded</h5>
+                      <p class="card-text">Evaluate customer acquisition efforts by tracking new clients onboarded.
+                      </p>
+                      <button type="button" class="btn btn-info rounded-pill">Read More</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Visual Indicators</h5>
+                      <p class="card-text">Use graphs, charts, and color-coded indicators to simplify complex data.
+                      </p>
+                      <button type="button" class="btn btn-info rounded-pill">Read More</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Graphs and Charts</h5>
+                      <p class="card-text">Visualize data trends and comparisons with interact and charts.</p>
+                      <button type="button" class="btn btn-info rounded-pill">Read More</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= Facts Section ======= -->
+        <section id="facts" class="facts">
+          <div class="container">
+            <div class="row no-gutters">
+
+              <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
+                <div class="count-box">
+                  <i class="bi bi-emoji-smile"></i>
+                  <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                    class="purecounter"></span>
+                  <p><strong>Happy Clients</strong> consequuntur quae</p>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="count-box">
+                  <i class="bi bi-journal-richtext"></i>
+                  <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+                    class="purecounter"></span>
+                  <p><strong>Projects</strong> adipisci atque cum quia aut</p>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
+                <div class="count-box">
+                  <i class="bi bi-headset"></i>
+                  <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1"
+                    class="purecounter"></span>
+                  <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
+                <div class="count-box">
+                  <i class="bi bi-people"></i>
+                  <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
+                    class="purecounter"></span>
+                  <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+        <!-- End Facts Section -->
+
+        <!-- ------------------------------
+                Employee performance
+            ----------------------------------->
+
+        <div class="container">
+          <div class="section-header">
+            <h2>Employee Performance</h2>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="name mb-3">
+                <h6>Saige Fuentes</h6>
+                <div class="progress">
+                  <div class="progress-bar bg-blue-gray" role="progressbar" style="width: 55%;" aria-valuenow="55"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="name mb-3">
+                <h6>Bowen Higgins</h6>
+                <div class="progress">
+                  <div class="progress-bar bg-blue-gray" role="progressbar" style="width: 15%;" aria-valuenow="15"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="name mb-3">
+                <h6>Leighton Kramer</h6>
+                <div class="progress">
+                  <div class="progress-bar bg-blue-gray" role="progressbar" style="width: 35%;" aria-valuenow="35"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="name mb-3">
+                <h6>Kylan Gentry</h6>
+                <div class="progress">
+                  <div class="progress-bar bg-blue-gray" role="progressbar" style="width: 95%;" aria-valuenow="95"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="name mb-3">
+                <h6>Jaylen Blackwell</h6>
+                <div class="progress">
+                  <div class="progress-bar bg-blue-gray" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="name mb-3">
+                <h6>Franklin Sierra</h6>
+                <div class="progress">
+                  <div class="progress-bar bg-blue-gray" role="progressbar" style="width: 75%;" aria-valuenow="75"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End  Employee performance Task Section -->
+
+        <div class="container-fluid py-3">
+          <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+              <div class="card">
+                <div class="card-header p-3 pt-2">
+                  <!-- <div
+                        class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="fa-solid fa-user shadow-dark text-center border-radius-xl mt-n4 position-absolute"></i>
+                      </div> -->
+                  <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize text-center">Total Leads</p>
+                    <h4 class="mb-0 text-center">1000</h4>
+                  </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+              <div class="card">
+                <div class="card-header p-3 pt-2">
+                  <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize text-center">Today's Users</p>
+                    <h4 class="mb-0 text-center">2,300</h4>
+                  </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last month
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+              <div class="card">
+                <div class="card-header p-3 pt-2">
+                  <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize text-center">New Clients</p>
+                    <h4 class="mb-0 text-center">3,462</h4>
+                  </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-danger text-sm font-weight-bolder">-2%</span> than yesterday</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <div class="card">
+                <div class="card-header p-3 pt-2">
+                  <div
+                    class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                  </div>
+                  <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize text-center">Sales</p>
+                    <h4 class="mb-0 text-center">$103,430</h4>
+                  </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+5% </span>than yesterday
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <section class="section">
+              <div class="row">
+
+                <div class="col-lg-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Policy Sales</h5>
+                      <div class="bar-container">
+                        <div class="bar" style="height: 70%;" data-label="January" data-value="70"></div>
+                        <div class="bar" style="height: 85%;" data-label="February" data-value="85"></div>
+                        <div class="bar" style="height: 55%;" data-label="March" data-value="55"></div>
+                        <div class="bar" style="height: 90%;" data-label="April" data-value="90"></div>
+                        <div class="bar" style="height: 60%;" data-label="May" data-value="60"></div>
+                        <div class="bar" style="height: 75%;" data-label="June" data-value="75"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Policies Sold</h5>
+                      <canvas id="donutChart" width="50" height="50"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <script>
+            const ctx = document.getElementById('donutChart').getContext('2d');
+            const donutChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                labels: ['Health', 'Life', 'Auto', 'Home', 'Travel', 'Business'],
+                datasets: [{
+                  label: 'Policies Sold',
+                  data: [30, 25, 15, 10, 12, 8],
+                  backgroundColor: [
+                    '#FF6384',
+                    '#36A2EB',
+                    '#FFCE56',
+                    '#4BC0C0',
+                    '#9966FF',
+                    '#FF9F40'
+                  ],
+                  hoverOffset: 8,
+                  hoverBorderColor: '#000',
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                responsive: true,
+                plugins: {
+                  legend: {
+                    position: 'top',
+                  },
+                  tooltip: {
+                    callbacks: {
+                      label: function (tooltipItem) {
+                        let dataset = tooltipItem.dataset;
+                        let total = dataset.data.reduce((acc, curr) => acc + curr, 0);
+                        let currentValue = dataset.data[tooltipItem.dataIndex];
+                        let percentage = Math.round((currentValue / total) * 100);
+                        return `${tooltipItem.label}: ${percentage}%`;
+                      }
+                    }
+                  }
+                }
+              }
+            });
+          </script>
+          </section> <!--  end graph and chart -->
+
+
+          <!-- Recent Sales -->
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3 col-xl-6">
+                <div class="card bg-c-blue order-card">
+                  <div class="card-block">
+                    <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <li class="dropdown-header text-start">
+                          <h6>Filter</h6>
+                        </li>
+                        <li><a class="dropdown-item" href="#">Today</a></li>
+                        <li><a class="dropdown-item" href="#">This Month</a></li>
+                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                      </ul>
+                    </div>
+                    <h3>Sales | Today</h3>
+                    <h6>- 145</h6>
+                    <p>12 % increase</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-xl-6">
+                <div class="card bg-c-blue order-card">
+                  <div class="card-block">
+                    <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <li class="dropdown-header text-start">
+                          <h6>Filter</h6>
+                        </li>
+                        <li><a class="dropdown-item" href="#">Today</a></li>
+                        <li><a class="dropdown-item" href="#">This Month</a></li>
+                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                      </ul>
+                    </div>
+                    <h3>Sales | Today</h3>
+                    <h6>- 145</h6>
+                    <p>12 % increase</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="card bg-c-blue order-card">
+                  <div class="card-block">
+                    <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <li class="dropdown-header text-start">
+                          <h6>Filter</h6>
+                        </li>
+                        <li><a class="dropdown-item" href="#">Today</a></li>
+                        <li><a class="dropdown-item" href="#">This Month</a></li>
+                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                      </ul>
+                    </div>
+
+                    <h3>Revenue | This Month</h3>
+                    <h6>$3,264</h6>
+                    <p>8 % increase</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="card recent-sales overflow-auto">
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Today</a></li>
+                  <li><a class="dropdown-item" href="#">This Month</a></li>
+                  <li><a class="dropdown-item" href="#">This Year</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+
+                <table class="table table-borderless datatable">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Customer</th>
+                      <th scope="col">Product</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><a href="#">#2457</a></th>
+                      <td>Brandon Jacob</td>
+                      <td><a href="#" class="text-primary">At praesentium minu</a></td>
+                      <td>$64</td>
+                      <td><span class="badge bg-success">Approved</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><a href="#">#2147</a></th>
+                      <td>Bridie Kessler</td>
+                      <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
+                      <td>$47</td>
+                      <td><span class="badge bg-warning">Pending</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><a href="#">#2049</a></th>
+                      <td>Ashleigh Langosh</td>
+                      <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
+                      <td>$147</td>
+                      <td><span class="badge bg-success">Approved</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><a href="#">#2644</a></th>
+                      <td>Angus Grady</td>
+                      <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
+                      <td>$67</td>
+                      <td><span class="badge bg-danger">Rejected</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><a href="#">#2644</a></th>
+                      <td>Raheem Lehner</td>
+                      <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
+                      <td>$165</td>
+                      <td><span class="badge bg-success">Approved</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+            </div>
+          </div><!-- End Recent Sales -->
+        </div>
+
+        <div class="attendance">
+          <div class="attendance-list">
+            <h2 >Attendance List</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Depart</th>
+                  <th>Date</th>
+                  <th>Join Time</th>
+                  <th>Logout Time</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01</td>
+                  <td>Sam David</td>
+                  <td>Design</td>
+                  <td>03-24-22</td>
+                  <td>8:00AM</td>
+                  <td>3:00PM</td>
+                  <td><button>View</button></td>
+                </tr>
+                <tr class="active">
+                  <td>02</td>
+                  <td>Balbina Kherr</td>
+                  <td>Coding</td>
+                  <td>03-24-22</td>
+                  <td>9:00AM</td>
+                  <td>4:00PM</td>
+                  <td><button>View</button></td>
+                </tr>
+                <tr>
+                  <td>03</td>
+                  <td>Badan John</td>
+                  <td>testing</td>
+                  <td>03-24-22</td>
+                  <td>8:00AM</td>
+                  <td>3:00PM</td>
+                  <td><button>View</button></td>
+                </tr>
+                <tr>
+                  <td>04</td>
+                  <td>Sara David</td>
+                  <td>Design</td>
+                  <td>03-24-22</td>
+                  <td>8:00AM</td>
+                  <td>3:00PM</td>
+                  <td><button>View</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </main>
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="footer-content">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <span>Endeavour Insurance</span>
+            </a>
+            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies
+              darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <div class="social-links d-flex  mt-3">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bi bi-dash"></i> <a href="#">Home</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">About us</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Services</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bi bi-dash"></i> <a href="#">Web Design</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Web Development</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Product Management</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Marketing</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Contact Us</h4>
+            <p>
+              A602, 6th Floor, Above Bank of Baroda, Pride Square,<br> Kalewadi Phata, Wakad Pune- 411057 <br><br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Endeavour Insurance</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nova-bootstrap-business-template/ -->
+          Designed by <a href="#">Endeavour</a>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+
+  <!-- dashoard   -->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</body>
+
+</html>
